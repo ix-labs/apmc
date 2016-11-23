@@ -1,0 +1,38 @@
+2005-04-12  Guillaume Guirado  <guillaume.guirado@lrde.epita.fr>
+
+	* src/hosts.c: Fix bug when hostname ended by spaces or tab.
+
+2005-03-21  Guillaume Guirado  <guillaume.guirado@lrde.epita.fr>
+
+	* src/print_res.c (send_data): Corrected bug if no new values available
+	(no more timeout for this reason)
+
+2005-02-26  Guillaume Guirado  <guillaume.guirado@lrde.epita.fr>
+
+	* Rename host file list from 'hosts' to 'hosts_apmc'.
+
+	* Deletes temporary files before exiting.
+
+2005-02-24  Guillaume Guirado  <guillaume.guirado@lrde.epita.fr>
+
+	* Children receive a PING message. If no message -> timeout
+
+2005-02-22  Guillaume Guirado  <guillaume.guirado@lrde.epita.fr>
+
+	* Worker is now compiled on each station.
+
+2005-02-21  Guillaume Guirado  <guillaume.guirado@lrde.epita.fr>
+
+	* Bugs fixed, now successfully tested on lrde's network.
+
+2005-02-20  Guillaume Guirado  <guillaume.guirado@lrde.epita.fr>
+
+	* No more IPC errors. Correctly stops all processes (using command + timeout).
+	* Correctly collects results of children workers, adds them and prints o n stdout.
+
+2005-02-11  Guillaume Guirado  <guillaume.guirado@lrde.epita.fr>
+
+	* Add autotools configuration files.
+
+	* Now compile without warning when using -Wall flag.
+
