@@ -1,0 +1,11 @@
+#!/bin/sh
+
+function run_apmcd()
+{
+	HOSTNAME=`hostname`
+	cd /home/orsay/therault/APMC/apmc-trunk-1.Dec.06/apmc_cluster
+	exec ./apmcd </dev/null 2>/home/orsay/therault/apcmd.$HOSTNAME.err 1>apmcd.$HOSTNAME.out
+}
+
+run_apmcd &
+

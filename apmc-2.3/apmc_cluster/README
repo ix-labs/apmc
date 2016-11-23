@@ -1,0 +1,48 @@
+This is the RPC APMC deployment tool.
+
+Compile: just type make
+  A C compiler should be in your path
+  rpcgen should also be in your path
+
+Install: no installation is assumed or provided. You should run the apmcd, 
+connect and apmcc tools here
+
+Run:
+ First, go into ../japmcc and produce a c-code for your model and properties.
+ Let us call this code "dice.c" in the following.
+
+ You should run the apmcd program compiled here on each of your nodes.
+  apmcd does not take arguments.
+ Then, use the connect program to build a spanning binary tree of these 
+  apmc daemons. Usage : connect <parent> [to] <child>. <parent> and <child>
+  are IP addresses or URI of the nodes.
+ The arity of the tree is chosen in apmcd.x, in the %#define NBSUBS 2
+  2 means an at-most-binary tree.
+ In the same file, each daemon will run %#define NBSONS processes 
+  simultaneously.
+  If you use bi-processors, or more, you want to change this value to your 
+  number of processors before compiling.
+ The root of the tree should be the machine on which you will run the apmcc
+  command (unless you do not want that your commands spawn on every nodes).
+ The deploy.sh and run_apmcd scripts may help you to launch and connect the
+  apmc daemon. They may need some tweaking to work with your cluster booking
+  system and your installation (currently, the deploy.sh script expects to
+  have the list of machines in a file located in $OAR_NODEFILE).
+
+ When all apmc daemons run and are connected, you can launch many apmc
+  experiments. However, some instability were reported, so from time to time,
+  it may be a good idea to kill every daemon and relaunch everything. Bug
+  reports are welcome.
+
+ To launch an apmc run, first you must compile the verifier. For this, an
+  "endcode.h" file suitable for RPC is provided in this directory. So, you
+  should compile with
+   gcc -o dice -O3 dice.c apmcd_clnt.o apmcd_xdr.o
+  ran in this directory. (the two .o files should have been compiled at make
+  time, and must be reused here to implement the client side of the RPC).
+ Then, you can launch a run with the apmcc command provided in this directory.
+   apmcc /absolute/path/to/dice <k> <npaths>
+   where <k> is the paths length and <npaths> the number of samples.
+ Please note that /absolute/path/to/dice should either be in the NFS, or that
+   you should first copy (or recompile for the targeted architecture) dice 
+   into each node at this location.

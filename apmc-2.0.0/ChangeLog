@@ -1,0 +1,27 @@
+2005-04-03  Guillaume Guirado  <guillaume.guirado@lrde.epita.fr>
+
+	* Ignores SIG_PIPE signal (we use another way to detect errors on file
+	descriptor).
+
+2005-03-14  Guillaume Guirado  <guillaume.guirado@lrde.epita.fr>
+
+	* Deletes code in comments.
+
+	* Removes sleep() when exits.
+
+2005-02-24  Guillaume Guirado  <guillaume.guirado@lrde.epita.fr>
+
+	* apmc.sh is a good way to compile/use easily apmc
+
+2005-02-22  Guillaume Guirado  <guillaume.guirado@lrde.epita.fr>
+
+	* apmcdeploy & apmc now work together
+
+2005-02-10  Guillaume Guirado  <guillaume.guirado@lrde.epita.fr>
+
+	* Adding deployment program into svn
+
+2005-02-08  Guillaume Guirado  <guirad_g@ps-stud-1.lrde.epita.fr>
+
+	* Initial checking
+
