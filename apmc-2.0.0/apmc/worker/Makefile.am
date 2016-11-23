@@ -1,2 +1,0 @@
-bin_PROGRAMS=apmcworker
-apmcworker_SOURCES=amc_gc_code.c
