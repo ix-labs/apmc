@@ -1,4 +1,6 @@
-APMC version 2.2 (March 27, 2006)
+APMC version 3.0
+
+This is the java+C version of APMC.
 
 First go into japmcc, read README.
 Then you may want to look into apmc_cluster.
